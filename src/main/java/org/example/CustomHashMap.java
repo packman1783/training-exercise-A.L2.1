@@ -46,7 +46,7 @@ public class CustomHashMap<K, V> {
         int index = hash(key);
         Node<K, V> current = buckets[index];
         while (current != null) {
-            if ((key == null && current.key == null ) || (key != null && key.equals(current.key))) {
+            if ((key == null && current.key == null) || (key != null && key.equals(current.key))) {
                 V oldValue = current.value;
                 current.value = value;
                 return oldValue;
@@ -67,7 +67,7 @@ public class CustomHashMap<K, V> {
         Node<K, V> current = buckets[index];
         Node<K, V> prev = null;
 
-        while(current != null) {
+        while (current != null) {
             if ((key == null && current.key == null) || (key != null && key.equals(current.key))) {
                 if (prev == null) {
                     buckets[index] = current.next;
@@ -91,8 +91,8 @@ public class CustomHashMap<K, V> {
         buckets = (Node<K, V>[]) new Node[capacity];
         size = 0;
 
-        for(Node<K, V> node : oldBuckets) {
-            while(node != null) {
+        for (Node<K, V> node : oldBuckets) {
+            while (node != null) {
                 put(node.key, node.value);
                 node = node.next;
             }
